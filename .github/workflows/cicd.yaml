@@ -91,7 +91,7 @@ jobs:
   # ==========================================
 
   continuous-deployment:
-    name: Continuous Deployment
+    name: Production Deployment
     needs: build-and-push-ecr-image
 
     runs-on: [self-hosted, linux, x64, atlas-ec2]
@@ -316,6 +316,16 @@ jobs:
             > /dev/null
 
           echo "Atlas Enterprise AI deployed successfully"
+
+      - name: Mark Production Deployment Complete
+        run: |
+          {
+            echo "## Production deployment: DONE"
+            echo ""
+            echo "- Image: \`${{ steps.image.outputs.image }}\`"
+            echo "- Container: \`atlas-enterprise-ai\`"
+            echo "- Health check: passed"
+          } >> "$GITHUB_STEP_SUMMARY"
 
       # ----------------------------------------
       # CLEANUP
