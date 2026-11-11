@@ -15,7 +15,7 @@ permissions:
 
 concurrency:
   group: atlas-deployment
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 jobs:
 
