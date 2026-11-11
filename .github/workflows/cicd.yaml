@@ -149,7 +149,7 @@ jobs:
           docker pull "$IMAGE"
 
       # ----------------------------------------
-      # VALIDATE APPLICATION SECRETS
+      # VALIDATE APPLICATION SECRETS and variables
       # ----------------------------------------
 
       - name: Validate Application Secrets
